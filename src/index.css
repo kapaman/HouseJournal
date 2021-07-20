@@ -278,13 +278,14 @@ code {
   #viewId{
     width:72% !important;
     
+    
   }
-  p.name{
+  p.nameid{
     font-size:20px !important;
   }
-  p.rating{
+  p.ratingid{
     padding:0px 20px !important;
-    font-size:15px !important;
+    font-size:14px !important;
     min-width: 40px !important;
   }
 }
@@ -296,28 +297,44 @@ code {
 
   #viewId{
     width:90% !important;
+    flex-direction:column !important;
   }
 
-  p.name{
+  p.nameid{
     font-size:18px !important;
   }
-  p.rating{
+  p.ratingid{
     padding:2.5px 18px !important;
     font-size:13px !important;
     min-width: 40px !important;
   }
 
   #viewIdName{
-    font-size:14px !important;
+    font-size:16px !important;
   }
   #top{
     width:90% !important;
   }
   .img{
-    width:80px !important;
-    height:80px !important;
+    width:inherit !important;
+    height:150px !important;
+    border-radius:0 !important;
   }
   .description{
-    font-size:13px !important;
+    font-size:12px !important;
+    /* width:inherit !important; */
+    max-width: inherit !important;
+    margin: 12px 12px 12px 12px;
+  }
+  .desc{
+    margin: 0px 0px 0px 5px !important;
+    width:inherit !important
+  }
+  .nameoverview{
+    font-size:18px !important;
+  }
+
+  .price{
+    font-size:14px !important;
   }
 }
