@@ -12,8 +12,40 @@ import area from '../map.png'
 
 const OverViewDesigned = (props) => {
 
-    if (props.properties == null) return null;
+    if (props.properties == null || props.views == null) return <p>Loading...</p>;
+
+
+
+
+
+
+    let newproperties = props.properties.find(el => el._id === props.id);
+    const calculateRating = (views) => {
+
+        let numerator = 0, denominator = 0;
+        for (let i = 0; i < newproperties.parts.length; i++) {
+            let finder = props.views.find(el => (el.name).toLowerCase() === (newproperties.parts[i].name).toLowerCase())
+            if (finder != undefined) {
+                // console.log(finder, newproperties[j].parts[i])
+                numerator += parseFloat(finder.weight) * parseFloat(newproperties.parts[i].rating);
+                denominator += finder.weight;
+            }
+        }
+        if (numerator == 0 || denominator == 0) { console.log('error'); newproperties.rating = 0; }
+        else newproperties.rating = (numerator / denominator).toFixed(1);
+        console.log("rating for house ", newproperties.address, " is ", numerator / denominator)
+
+    }
+
+
+
+    calculateRating();
+
+
+
+
     let selectedProp = props.properties.find(el => el._id == props.id);
+    console.log(newproperties.rating);
     return (
         <div style={{ marginTop: '100px' }}>
             <div style={{ display: 'grid', width: '100%' }}>
@@ -24,16 +56,17 @@ const OverViewDesigned = (props) => {
                                 <p className="name nameoverview" style={{ textAlign: 'left', fontFamily: 'Poppins', fontWeight: 700, fontSize: '22px', marginTop: '15px' }}>{selectedProp.address}
                                 </p>
                             </div>
+
                             <div style={{ marginTop: '15px' }}>
-                                <p className="rating" style={{ display: 'flex', alignItems: 'center', fontSize: '18px', margin: '10px', backgroundColor: 'black', fontFamily: '"Poppins"', fontWeight: 400, color: 'white', padding: '0 30px 0 30px', borderRadius: '10px', lineHeight: '1.5' }}>{selectedProp.stars}<svg style={{ marginLeft: '4px' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <p className="rating" style={{ display: 'flex', alignItems: 'center', fontSize: '18px', margin: '10px', backgroundColor: 'black', fontFamily: '"Poppins"', fontWeight: 400, color: 'white', padding: '0 30px 0 30px', borderRadius: '10px', lineHeight: '1.5' }}>{newproperties.rating !== NaN ? newproperties.rating : 0}<svg style={{ marginLeft: '4px' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                 </svg></p>
                             </div>
                         </div>
                         <div style={{ display: 'flex', textAlign: 'space-between', justifyContent: 'space-between', marginTop: '15px', alignItems: 'center' }}>
-                            <div className="desc" style={{ width: 'inherit', margin: '0 15px 0 15px', textAlign: 'left' }}>
+                            <div className="desc1" style={{ width: 'inherit', margin: '0 15px 0 15px', textAlign: 'left' }}>
                                 <p className="description" style={{ fontFamily: 'Poppins', alignItems: 'center', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr auto', fontSize: '16px', columnGap: '4px', fontWeight: 200, lineHeight: '1.5' }}>
-                                    <img height={24} width={24} src={bed}></img> <p>{selectedProp.beds}</p> <img height={28} width={28} src={bathroom}></img> <p>{selectedProp.bathrooms}</p> <img height={24} width={24} src={area}></img> <p>{selectedProp.area} sqft</p>
+                                    <img height={24} width={24} src={bed}></img> <p>{selectedProp.beds}</p> <img height={28} width={28} src={bathroom}></img> <p>{selectedProp.bathrooms}</p> <img height={24} width={24} src={area}></img> <p>{selectedProp.area.toLocaleString()} sqft</p>
                                 </p>
                             </div>
                             <div style={{ marginRight: '25px' }}>
@@ -68,38 +101,40 @@ const Parts = (props) => {
 
 
     return (
-        <div className="view" id="viewId" style={{ display: 'flex', border: '0px transparent', borderImageSlice: 1, borderWidth: '0.5px', borderImageSource: 'linear-gradient(to bottom, white, rgba(0, 0, 0, 0.4))', lineHeight: 1, textAlign: 'center', width: '35%', fontSize: '30px', borderRadius: '23px', backgroundColor: 'white', padding: '1.0px', backgroundImage: 'linear-gradient(white, white), linear-gradient(#fff, #8b8b8b)', backgroundOrigin: 'border-box', backgroundClip: 'content-box, border-box' }}>
-            <img class="img" src={props.src} style={{ alignSelf: 'center', borderRadius: '50%', margin: '12px 10px 12px 10px', height: '100px', width: '100px', boxShadow: '1.08px 1.4px 8.6px -2.1px black' }} />
+        <div className="view" id="viewId" style={{ width:'100%',display: 'flex', border: '0px transparent', borderImageSlice: 1, borderWidth: '0.5px', borderImageSource: 'linear-gradient(to bottom, white, rgba(0, 0, 0, 0.4))', lineHeight: 1, textAlign: 'center', fontSize: '30px', borderRadius: '23px', backgroundColor: 'white', padding: '1.0px', backgroundImage: 'linear-gradient(white, white), linear-gradient(#fff, #8b8b8b)', backgroundOrigin: 'border-box', backgroundClip: 'content-box, border-box' }}>
+            <img className="img" src={props.src} style={{ alignSelf: 'center', borderRadius: '50%', margin: '12px 10px 12px 10px', height: '100px', width: '100px', boxShadow: '1.08px 1.4px 8.6px -2.1px black' }} />
             <div className="innerView" style={{ marginLeft: '5px', marginRight: '5px', display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', width: '100%', flex: 1 }}>
                 <div style={{ marginTop: '5px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '0 15px 0 15px' }}>
                     <div >
-                        <p className="name nameid" id="viewIdName" style={{ textAlign: 'left', fontFamily: 'Poppins', fontSize: '18px', fontWeight: 500, marginTop: '15px', marginBottom: '0' }}>{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</p>
+                        <p className="name" id="viewIdName" style={{ textAlign: 'left', fontFamily: 'Poppins', fontSize: '18px', fontWeight: 500, marginTop: '15px', marginBottom: '0' }}>{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</p>
                     </div>
-                    <div>
-                        <p className="rating ratingid" style={{ alignItems: "center",
-                        display: "grid",
-gridTemplateColumns:" 1fr 1fr", fontSize: '16px', margin: '10px', backgroundColor: 'black', fontFamily: '"Poppins"', fontWeight: 400, color: 'white', padding: '0 30px 0 30px', borderRadius: '10px', lineHeight: '1.5', textAlign: 'center' }}>{props.stars}<svg style={{ marginLeft: '4px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                        </svg></p>
+                    <div style={{ display: 'grid' }}>
+                        <p className="rating ratingid" style={{
+                            justifySelf: 'center', justifyContetn: 'center', alignItems: "center",
+                            display: "grid",
+                            gridTemplateColumns: " 1fr 1fr", fontSize: '16px', margin: '10px', backgroundColor: 'black', fontFamily: '"Poppins"', fontWeight: 400, color: 'white', padding: '0 25px', borderRadius: '10px', lineHeight: '1.5', textAlign: 'center'
+                        }}>{props.stars}<svg style={{ marginLeft: '4px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                            </svg></p>
+                    </div>
+                </div>
+                <div className="desc" style={{ width: '100%', margin: '0 15px 0 15px', textAlign: 'left', marginTop: ' 5px' }}>
+                    <p className="description" style={{ color: '#464646', width: 'calc(100% - 30px)', fontFamily: 'Poppins', fontSize: '15px', marginTop: '0px', fontWeight: 200, lineHeight: '1.5' }}>
+                        {props.description}
+                    </p>
                 </div>
             </div>
-            <div className="desc" style={{ width: '100%', margin: '0 15px 0 15px', textAlign: 'left', marginTop: ' 5px' }}>
-                <p className="description" style={{ color: '#464646', width: 'calc(100% - 30px)', fontFamily: 'Poppins', fontSize: '15px', marginTop: '0px', fontWeight: 200, lineHeight: '1.5' }}>
-                    {props.description}
-                </p>
-            </div>
-        </div>
         </div >
     )
 
-return (
-    <div>
-        <div className="flex-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', backgroundColor: 'white' }}>
+    return (
+        <div>
+            <div className="flex-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', backgroundColor: 'white' }}>
 
+            </div>
         </div>
-    </div>
 
-)
+    )
 
 
 
@@ -116,12 +151,15 @@ const PartView = (props) => {
     if (props.properties == null) {
         return <p>Loading...</p>
     }
+
+
+
     let sortedParts = ((props.properties.find(el => el._id == props.id).parts));
     sortedParts.sort((a, b) => {
         return b.rating - a.rating
     });
     return (
-        <div className="flex-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', backgroundColor: 'white', rowGap: '25px', columnGap: '50px', marginTop: '30px', marginBottom: '30px' }}>
+        <div className="flex-container2" style={{ display: 'grid',gridTemplateColumns:'1fr 1fr',justifyItems:'center',margin:'30px 13.1%', flexWrap: 'wrap', justifyContent: 'center', backgroundColor: 'white', rowGap: '25px', columnGap: '50px', marginTop: '30px', marginBottom: '30px' }}>
 
             {sortedParts.length > 0 && sortedParts.map((el, i) => <Parts key={i} src={el.img} description={el.description} stars={el.rating} title={el.name}></Parts>)}
             {sortedParts.length == 0 && <p style={{ marginTop: '50px' }}>No views to show... Start adding Views</p>}
@@ -129,11 +167,11 @@ const PartView = (props) => {
     )
 }
 const AllViews = (props) => {
-    console.log("props from overview", props);
+    // console.log("props from overview", props);
     const id = useParams().id
-    console.log(id);
+    // console.log(id);
     return (
-        <>  <OverViewDesigned id={id} properties={props.properties.length > 0 ? props.properties : null}></OverViewDesigned>
+        <>  <OverViewDesigned id={id} properties={props.properties.length > 0 ? props.properties : null} views={props.views.length > 0 ? props.views : null}></OverViewDesigned>
             {/* <OverView id={id} properties={props.properties.length > 0 ? props.properties : null}></OverView> */}
             <PartView id={id} properties={props.properties.length > 0 ? props.properties : null}></PartView>
             <AddView show={props.show} setShow={props.setShow} views={props.views.length > 0 ? props.views : null} properties={props.properties.length > 0 ? props.properties : null} setProperties={props.setProperties.length > 0 ? props.setProperties : null} setViews={props.setViews ? props.setViews : null}></AddView>

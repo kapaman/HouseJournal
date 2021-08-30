@@ -2,7 +2,7 @@
   "views": [
     {
       "name": "Attic",
-      "weight": 5,
+      "weight": 3.5,
       "_id": "60e5a58422b01239d515b583"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "name": "Bathroom",
-      "weight": 3,
+      "weight": 1,
       "_id": "60e5a584741185d00e4e5c67"
     },
     {
@@ -37,17 +37,17 @@
     },
     {
       "name": "Doorstep",
-      "weight": 4,
+      "weight": 5,
       "_id": "60e5a58476ed343362f30897"
     },
     {
       "name": "Dormer Window",
-      "weight": 3,
+      "weight": 5,
       "_id": "60e5a584d2ecd2c5a340f44b"
     },
     {
       "name": "Driveway",
-      "weight": 1,
+      "weight": 4,
       "_id": "60e5a584ede84ef9bbc1b384"
     },
     {
@@ -117,7 +117,7 @@
     },
     {
       "name": "Library ",
-      "weight": 3,
+      "weight": 4,
       "_id": "60e5a5847aec46fe84e19022"
     },
     {
@@ -713,6 +713,135 @@
           "rating": 5
         }
       ]
+    },
+    {
+      "img": "https://plachold.it/512x512",
+      "address": "test",
+      "beds": 1,
+      "bathrooms": 2,
+      "area": 123123,
+      "price": "$123,123",
+      "parts": [
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Garage",
+          "description": "shit garage",
+          "rating": 5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Attic",
+          "description": "Great Attic!",
+          "rating": 3
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Bathroom",
+          "description": "",
+          "rating": 3
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Balcony",
+          "description": "",
+          "rating": 3
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Bedroom",
+          "description": "great Bedroom",
+          "rating": 2
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Doorstep",
+          "description": "",
+          "rating": 0.5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Library ",
+          "description": "Great Library boiz",
+          "rating": 3.5
+        }
+      ],
+      "stars": "2.8",
+      "_id": "mtHSFxU",
+      "rating": "2.6"
+    },
+    {
+      "img": "https://plachold.it/512x512",
+      "address": "test 2",
+      "beds": 1,
+      "bathrooms": 23,
+      "area": 123123,
+      "price": "$1,231",
+      "parts": [
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Garage",
+          "description": "great garage",
+          "rating": 5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Bedroom",
+          "description": "",
+          "rating": 5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Bathroom",
+          "description": "",
+          "rating": 5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Dormer Window",
+          "description": "not so great dormer window",
+          "rating": 0.5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Library ",
+          "description": "Great library",
+          "rating": 4
+        }
+      ],
+      "stars": "3.2",
+      "_id": "L39zTvi",
+      "rating": "3.0"
+    },
+    {
+      "img": "https://plachold.it/512x512",
+      "address": "newaddress who dis",
+      "beds": 12,
+      "bathrooms": 24,
+      "area": 232134,
+      "price": "$21,312",
+      "parts": [
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Balcony",
+          "description": "balc",
+          "rating": 4.5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Bathroom",
+          "description": "bathhh",
+          "rating": 1.5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Driveway",
+          "description": "new drive vroom vroom",
+          "rating": 3
+        }
+      ],
+      "stars": "3.0",
+      "_id": "5qDuHFk",
+      "rating": "3.0"
     }
   ]
 }

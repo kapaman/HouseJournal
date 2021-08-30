@@ -8,6 +8,9 @@ import {
   useParams,
   Redirect,
 } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
+import DragDrop from "./DragDrop";
+
 
 const AddProperty = ({ show, setShow, properties, setProperties }) => {
   // const id = useParams().id;
@@ -15,7 +18,14 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event, "coming from the ogssss.")
+    // console.log(event.target, "coming from the ogssss.")
+
+    console.log(event.target[0].value);
+    console.log(event.target[2].value);
+    console.log(event.target[4].value);
+    console.log(event.target[6].value);
+    console.log(event.target[8].value);
+
 
     var formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -23,14 +33,14 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
       maximumFractionDigits: 0,
     });
 
-    let price = (formatter.format(parseInt(event.target[1].value)))
+    let price = (formatter.format(parseInt(event.target[2].value)))
     console.log(price);
     let newProperty = {
       img: "https://plachold.it/512x512",
       address: event.target[0].value,
-      beds: parseInt(event.target[3].value),
-      bathrooms: parseInt(event.target[4].value),
-      area: parseInt(event.target[2].value),
+      beds: parseInt(event.target[6].value),
+      bathrooms: parseInt(event.target[8].value),
+      area: parseInt(event.target[4].value),
       price: price,
       parts: [],
       stars: 0
@@ -55,7 +65,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
     return (
 
 
-      <svg onClick={() => setShow(!show)} xmlns="http://www.w3.org/2000/svg" width={70} height={70} style={{
+      <svg id="expand" onClick={() => setShow(!show)} xmlns="http://www.w3.org/2000/svg" width={70} height={70} style={{
         position: "fixed",
         bottom: "0",
         right: "0",
@@ -90,31 +100,44 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
 
     return (
       <form onSubmit={handleSubmit}>
-        <div className="card" style={{
+        <div className="card cardprop"  style={{
           backgroundColor: 'white', color: 'black', display: 'grid', width: '350px', gridGap: '15px', padding: '20px 25px', border: '0.5px solid #b0b0b0', borderRadius: '20px', boxShadow: '1px 1px 4px 1px rgba(0, 0, 0, 0.25)', position: "fixed",
           bottom: "0",
           right: "0",
           marginRight: "50px",
           marginBottom: "50px", zIndex: '9', rowGap: '25px'
         }}>
-          <div style={{ display: 'flex', border: '3px dashed #8D8D8D', borderRadius: '20px', padding: '10px 10px 10px 10px' }}><svg xmlns="http://www.w3.org/2000/svg" width={128} height={128} fill="rgba(11, 31, 223, 0.7)" className="bi bi-image" viewBox="0 0 16 16">
+          
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width={128} height={128} fill="rgba(11, 31, 223, 0.7)" className="bi bi-image" viewBox="0 0 16 16">
             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
           </svg>
-            <p style={{ alignSelf: 'center', marginLeft: '20px', marginBottom: '10px', marginTop: '0px' }}>Drag and drop image, or Upload</p>
+            <p style={{ alignSelf: 'center', marginLeft: '20px', marginBottom: '10px', marginTop: '0px' }}>Drag and drop image, or Upload</p> */}
+            <DragDrop></DragDrop>
+          
+          <div className="textarea" style={{ display: 'grid', gridTemplateColumns: '1fr', fontFamily: '"Poppins"', fontWeight: 200 }}>
+            {/* <textarea className="description" placeholder="Address" style={{ gridColumnStart: 1, gridColumnEnd: 5, marginTop: '0px', borderRadius: '10px', fontFamily: '"Poppins"', border: '0.3px solid #0B1FDF', padding: '5px', fontSize: '13px' }} defaultValue={""} /> */}
+            <TextField multiline margin="none"
+              rows={2} id="outlined-basic" label="Address" variant="outlined" />
+
           </div>
-          <div className="textarea" style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', fontFamily: '"Poppins"', fontWeight: 200 }}><textarea className="description" placeholder="Address" style={{ gridColumnStart: 1, gridColumnEnd: 5, marginTop: '0px', borderRadius: '10px', fontFamily: '"Poppins"', border: '0.3px solid #0B1FDF', padding: '5px', fontSize: '13px' }} defaultValue={""} /></div>
-          <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: '340px', columnGap: '25px' }}>
-            <input className="title" id="price" placeholder="Price" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 1, gridColumnEnd: 2, width: '100%' }} />
-            <input className="title" id="area" placeholder="Area" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 2, gridColumnEnd: 3, width: '100%' }} />
+          <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: 'inherit', columnGap: '25px' }}>
+            {/* <input className="title" id="price" placeholder="Price" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 1, gridColumnEnd: 2, width: '100%' }} /> */}
+
+            <TextField label="Price" variant="outlined" size="small"></TextField>
+            {/* <input className="title" id="area" placeholder="Area" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 2, gridColumnEnd: 3, width: '100%' }} /> */}
+            <TextField label="Area" variant="outlined" size="small"></TextField>
           </div>
-          <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: '340px', columnGap: '25px' }}>
-            <input className="title" id="price" placeholder="Bedrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} />
-            <input className="title" id="area" placeholder="Bathrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} />
+          <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: 'inherit', columnGap: '25px' }}>
+            {/* <input className="title" id="price" placeholder="Bedrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} />
+            <input className="title" id="area" placeholder="Bathrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} /> */}
+            <TextField label="Bedrooms" variant="outlined" size="small"></TextField>
+            <TextField label="Bathrooms" variant="outlined" size="small"></TextField>
           </div>
           <div className="buttons" style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto auto', gridGap: '15px', marginTop: '10px' }}>
             <button className="cancel" onClick={() => setShow(!show)} type="button" style={{ cursor: 'pointer', gridColumn: '4/5', background: 'white', color: 'black', padding: '5px 15px 5px 15px', borderRadius: '13px', fontSize: '17px', border: '1px solid #727272', fontWeight: 400 }}>cancel</button>
-          <button className="save" type="submit" style={{ gridColumn: '5/6', background: 'black', color: 'white', padding: '5px 15px 5px 15px', borderRadius: '13px', fontSize: '17px', border: 'none', fontWeight: 400, cursor: 'pointer' }} >save</button>
+            <button className="save" type="submit" style={{ gridColumn: '5/6', background: 'black', color: 'white', padding: '5px 15px 5px 15px', borderRadius: '13px', fontSize: '17px', border: 'none', fontWeight: 400, cursor: 'pointer' }} >save</button>
+
           </div>
         </div>
       </form>
