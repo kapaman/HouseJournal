@@ -405,9 +405,9 @@ code {
   }
 
 
-  .innerView div:first-child {
-    /* margin-bottom: 5px !important; */
-  }
+  /* .innerView div:first-child {
+    margin-bottom: 5px !important;
+  } */
 
   p.rating {
     font-size: 15px !important;
@@ -489,6 +489,7 @@ nav{
   margin:0;
   position:fixed;
   top:0;
+  z-index:2;
 }
 nav .logo{
   color: #fff;
