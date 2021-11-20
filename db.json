@@ -2,7 +2,7 @@
   "views": [
     {
       "name": "Attic",
-      "weight": 3.5,
+      "weight": 5,
       "_id": "60e5a58422b01239d515b583"
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "name": "Game Room",
-      "weight": 3,
+      "weight": 5,
       "_id": "60e5a584977fe2d543050590"
     },
     {
       "name": "Garage",
-      "weight": 4,
+      "weight": 1,
       "_id": "60e5a58432f12b60bdd71abf"
     },
     {
@@ -335,7 +335,7 @@
       "address": "154 Conway Street, Genoa, Arizona",
       "beds": 5,
       "bathrooms": 2,
-      "stars": "2.5",
+      "stars": "2.8",
       "area": 1836,
       "price": "$536,147",
       "img": "https://i.pinimg.com/originals/92/bf/9a/92bf9a539436dbdd08889353916d7182.jpg",
@@ -345,6 +345,12 @@
           "img": "https://media.istockphoto.com/photos/gold-and-pink-babys-bedroom-picture-id961931324?k=6&m=961931324&s=612x612&w=0&h=eSjK9BnkkHNCHzj8XudIe0IQKNk7aCrTfdynRi3yyo4=",
           "description": "Veniam consectetur aliqua aute ipsum elit tempor ut proident proident ut exercitation. Ullamco aliqua dolore incididunt dolor sunt et fugiat cillum Lorem quis qui Lorem incididunt.",
           "rating": 4.6
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Attic",
+          "description": "Great Attic",
+          "rating": 4
         },
         {
           "name": "garage",
@@ -387,8 +393,15 @@
           "img": "https://www.thespruce.com/thmb/9zdyLzPobCbaJrCfue4JR-xe6Ps=/2075x1167/smart/filters:no_upscale()/living-room-dos-and-donts-2213467-hero-da82a4643bc84d669a0a34f64e60beb1.jpg",
           "description": "Adipisicing enim dolor dolor ullamco irure qui mollit cupidatat deserunt aliquip laborum qui consequat. Aliquip ut veniam consequat quis.",
           "rating": 1
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Game Room",
+          "description": "Great Game room",
+          "rating": 5
         }
-      ]
+      ],
+      "rating": "2.2"
     },
     {
       "_id": "60bb5570858d72d4a2f31086",
@@ -715,133 +728,57 @@
       ]
     },
     {
-      "img": "https://plachold.it/512x512",
-      "address": "test",
+      "img": "http://placehold.it/512x512",
+      "address": "Chandigarh",
       "beds": 1,
-      "bathrooms": 2,
-      "area": 123123,
-      "price": "$123,123",
+      "bathrooms": 21,
+      "area": 2,
+      "price": "$11",
       "parts": [
         {
           "img": "http://placehold.it/512x512",
-          "name": "Garage",
-          "description": "shit garage",
+          "name": "Chimney",
+          "description": "",
           "rating": 5
+        },
+        {
+          "img": "http://placehold.it/512x512",
+          "name": "Gym",
+          "description": "good gym",
+          "rating": 4
         },
         {
           "img": "http://placehold.it/512x512",
           "name": "Attic",
-          "description": "Great Attic!",
-          "rating": 3
+          "description": "bad attic",
+          "rating": 1
         },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Bathroom",
-          "description": "",
-          "rating": 3
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Balcony",
-          "description": "",
-          "rating": 3
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Bedroom",
-          "description": "great Bedroom",
-          "rating": 2
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Doorstep",
-          "description": "",
-          "rating": 0.5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Library ",
-          "description": "Great Library boiz",
-          "rating": 3.5
-        }
-      ],
-      "stars": "2.8",
-      "_id": "mtHSFxU",
-      "rating": "2.6"
-    },
-    {
-      "img": "https://plachold.it/512x512",
-      "address": "test 2",
-      "beds": 1,
-      "bathrooms": 23,
-      "area": 123123,
-      "price": "$1,231",
-      "parts": [
         {
           "img": "http://placehold.it/512x512",
           "name": "Garage",
-          "description": "great garage",
-          "rating": 5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Bedroom",
-          "description": "",
-          "rating": 5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Bathroom",
-          "description": "",
-          "rating": 5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Dormer Window",
-          "description": "not so great dormer window",
+          "description": "meh",
           "rating": 0.5
         },
         {
           "img": "http://placehold.it/512x512",
-          "name": "Library ",
-          "description": "Great library",
-          "rating": 4
+          "name": "Bedroom",
+          "description": "ass",
+          "rating": 0.5
         }
       ],
-      "stars": "3.2",
-      "_id": "L39zTvi",
-      "rating": "3.0"
+      "_id": "Ly0jEce",
+      "rating": "3.0",
+      "stars": "2.9"
     },
     {
-      "img": "https://plachold.it/512x512",
-      "address": "newaddress who dis",
-      "beds": 12,
-      "bathrooms": 24,
-      "area": 232134,
-      "price": "$21,312",
-      "parts": [
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Balcony",
-          "description": "balc",
-          "rating": 4.5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Bathroom",
-          "description": "bathhh",
-          "rating": 1.5
-        },
-        {
-          "img": "http://placehold.it/512x512",
-          "name": "Driveway",
-          "description": "new drive vroom vroom",
-          "rating": 3
-        }
-      ],
-      "stars": "3.0",
-      "_id": "5qDuHFk",
-      "rating": "3.0"
+      "img": "http://placehold.it/512x512",
+      "address": "3123 Mohali, Punjab",
+      "beds": 3,
+      "bathrooms": 2,
+      "area": 8,
+      "price": "$5,000,000",
+      "parts": [],
+      "_id": "jDqGTAX"
     }
   ]
 }

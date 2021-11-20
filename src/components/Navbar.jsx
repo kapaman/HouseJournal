@@ -4,11 +4,7 @@ import React from "react";
 // import { Nav,Container } from "react-bootstrap";
 // import { NavDropdown,Nav,Navbar,NavbarBrand,NavLink,NavItem,Container } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useParams,
 } from "react-router-dom";
 // import styled from "styled-components";
 
@@ -44,7 +40,7 @@ const styles={
 //     );
 // };
 const NavBar = (props) => {
-  console.log(props);
+  //console.log(props);
 
   return (
     <div className="navbar" style={{ zIndex: '10', position: 'fixed', width: '100%', top: '0', display: 'flex', flexDirection: 'row', alignContent: 'center', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgb(54, 76, 255)', margin: 0 }}>

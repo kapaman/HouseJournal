@@ -3,18 +3,13 @@ import axios from "axios";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   useParams,
-  Redirect,
 } from "react-router-dom";
 import Slider from '@material-ui/core/Slider';
 import DragDrop from "./DragDrop";
 
 const AddView2 = ({ props, handleSubmit }) => {
-  console.log("from addview2", props)
+  //console.log("from addview2", props)
   const [weight, setWeight] = useState(3);
   const [rating, setRating] = useState(3);
 
@@ -27,24 +22,24 @@ const AddView2 = ({ props, handleSubmit }) => {
   };
 
   const getWeight = (weight) => {
-    if (weight == 1) return "Very Low";
-    if (weight == 2) return "Low";
-    if (weight == 3) return "Medium";
-    if (weight == 4) return "High";
-    if (weight == 5) return "Very High";
+    if (weight === 1) return "Very Low";
+    if (weight === 2) return "Low";
+    if (weight === 3) return "Medium";
+    if (weight === 4) return "High";
+    if (weight === 5) return "Very High";
 
   }
 
 
   const handleViewChange = (event) => {
-    console.log(event.target.innerText)
+    //console.log(event.target.innerText)
     let viewName = event.target.innerText;
     let finder = props.views.find(el => el.name === viewName);
     if (finder) {
       setWeight(finder.weight);
     }
   }
-console.log(window.innerWidth);
+//console.log(window.innerWidth);
 
   return (
     <form onSubmit={handleSubmit} style={{display:'grid'}}>
@@ -125,27 +120,27 @@ console.log(window.innerWidth);
 
 
 const AddView = (props) => {
-  console.log("these are the props", props);
+  //console.log("these are the props", props);
   const id = useParams().id;
-  console.log(props.views);
+  //console.log(props.views);
 
   const handleAddView = (newrating, currentParts, currentProp) => {
+
+
+    // send only the new part
     axios
-      .put(`http://192.168.18.163:3001/properties/${id}`, {
-        ...currentProp,
-        stars: newrating,
-        parts: currentParts,
-      })
+      .put(`http://localhost:5050/properties/${id}`, currentParts)
       .then((response) => {
+        //console.log(response," from put to parts");
         let newproperties = props.properties.map((el) => {
-          if (el._id == id) {
-            return { ...currentProp, stars: newrating, parts: currentParts };
+          if (toString(el._id) === toString(id)) {
+            return { ...currentProp, parts: [...(currentProp.parts),currentParts] };
           } else return el;
         });
         props.setProperties(newproperties);
         props.setShow(!props.show);
       }).catch(err => {
-        console.log(err);
+        //console.log(err);
       });
 
   }
@@ -153,21 +148,21 @@ const AddView = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("You rated it ", parseFloat(parseFloat(event.target[7].value).toFixed(1)))
-    let currentProp = props.properties.find((el) => el._id == id);
+    //console.log("You rated it ", parseFloat(parseFloat(event.target[7].value).toFixed(1)))
+    let currentProp = props.properties.find((el) => toString(el._id) === toString(id));
     let newrating;
     let newWeight = parseFloat(parseFloat(event.target[8].value).toFixed(1));
-    console.log(event.target);
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
-    console.log(event.target[2].value);
-    console.log(event.target[3].value);
-    console.log(event.target[4].value);
-    console.log(event.target[5].value);
-    console.log(event.target[6].value);
-    console.log(event.target[7].value);
-    console.log(event.target[8].value);
-    console.log(event.target[9].value);
+    //console.log(event.target);
+    //console.log(event.target[0].value);
+    //console.log(event.target[1].value);
+    //console.log(event.target[2].value);
+    //console.log(event.target[3].value);
+    //console.log(event.target[4].value);
+    //console.log(event.target[5].value);
+    //console.log(event.target[6].value);
+    //console.log(event.target[7].value);
+    //console.log(event.target[8].value);
+    //console.log(event.target[9].value);
 
     let currentParts = currentProp.parts;
 
@@ -175,40 +170,38 @@ const AddView = (props) => {
     for (let i = 0; i < currentParts.length; i++) {
       let finder = props.views.find(el => (el.name).toLowerCase() === (currentParts[i].name).toLowerCase())
       if (finder != undefined) {
-        console.log(finder, currentParts[i])
+        //console.log(finder, currentParts[i])
         numerator += parseFloat(finder.weight) * parseFloat(currentParts[i].rating);
         denominator += finder.weight;
       }
     }
 
-    currentParts = [
-      ...currentProp.parts,
-      {
-        img: "http://placehold.it/512x512",
+    currentParts = {
+        //img: "http://placehold.it/512x512",
         name: event.target[1].value,
         description: event.target[5].value,
         rating: parseFloat(parseFloat(event.target[7].value).toFixed(1))
-      },
-    ];
+    };
+   
 
     numerator += parseFloat(parseFloat(event.target[7].value).toFixed(1)) * newWeight;
     denominator += newWeight;
 
-    console.log(numerator, denominator);
-    console.log(event.target[0].value);
+    //console.log(numerator, denominator);
+    //console.log(event.target[0].value);
     newrating = (numerator * 1.0 / denominator).toFixed(1);
     let finder = props.views.find(el => (el.name).toLowerCase() === (event.target[1].value).toLowerCase())
-    console.log(finder);
+    //console.log(finder);
     if (parseFloat(finder.weight) !== newWeight) {
-      console.log(finder);
-      axios.put(`http://192.168.18.163:3001/views/${finder._id}`, { ...finder, weight: newWeight })
+      //console.log(finder);
+      axios.put(`http://localhost:5050/views/${finder._id}`, { ...finder, weight: newWeight })
         .then(res => {
           let newViews = props.views.map(el => {
-            if (el.name == finder.name) {
+            if (el.name === finder.name) {
               return { ...finder, weight: newWeight };
             } else return el;
           })
-          console.log(newViews);
+          //console.log(newViews);
           props.setViews(newViews);
           return newViews;
         })
@@ -244,28 +237,6 @@ const AddView = (props) => {
       }} fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
       </svg>)
-
-    return (<div
-      onClick={() => props.setShow(!props.show)}
-      style={{
-        position: "fixed",
-        bottom: "0",
-        right: "0",
-        marginRight: "50px",
-        marginBottom: "50px",
-        backgroundColor: "black",
-        color: "white",
-        fontSize: "40px",
-        paddingTop: "20px",
-        paddingBottom: "20px",
-        paddingRight: "30px",
-        paddingLeft: "30px",
-        borderRadius: "50%",
-        cursor: "pointer",
-      }}>
-      +
-    </div>
-    );
   } else {
     return (
       <AddView2 props={props} handleSubmit={handleSubmit}></AddView2>

@@ -305,12 +305,10 @@ code {
 
 
   } */
-  .flex-container2{
-    grid-template-columns:1fr !important;
-  }
+
   .flex-container {
     /* grid-template-columns: 1fr 1fr 1fr !important; */
-    width:100% !important; 
+    width: 100% !important;
   }
 
   p.nameid {
@@ -323,19 +321,25 @@ code {
     min-width: 40px !important;
   }
 }
+
 @media only screen and (max-width: 950px) {
   .flex-container {
     grid-template-columns: 1fr 1fr !important;
-    width:80% !important; 
+    width: 80% !important;
+  }
+
+  .flex-container2 {
+    grid-template-columns: 1fr !important;
   }
 }
 
 @media only screen and (max-width: 730px) {
   .flex-container {
     grid-template-columns: 1fr !important;
-    width:100% !important; 
+    width: 100% !important;
   }
 }
+
 @media only screen and (max-width: 550px) {
   /* .higherHouseCard{
     width:100% !important;
@@ -349,12 +353,14 @@ code {
     /* width: 90% !important; */
     flex-direction: column !important;
   }
+
   .flex-container {
     grid-template-columns: 1fr !important;
-    margin:80px 2% !important; 
+    margin: 80px 2% !important;
   }
-  .flex-container2{
-    margin:30px 2% !important;
+
+  .flex-container2 {
+    margin: 30px 2% !important;
   }
 
   p.nameid {
@@ -424,46 +430,53 @@ code {
     font-size: 13px !important;
     min-width: 40px !important;
   }
-  #expand{
-    margin-bottom:20px !important;
-    margin-right:20px !important;
-    width:60px !important;
-    height:60px !important;
+
+  #expand {
+    margin-bottom: 20px !important;
+    margin-right: 20px !important;
+    width: 60px !important;
+    height: 60px !important;
     /* display:none; */
   }
-  .cardview{
-    width:280px !important;
-    
-    justify-self:center !important;
+
+  .cardview {
+    width: 280px !important;
+
+    justify-self: center !important;
     /* right:unset !important; */
     margin-right: 30px !important;
-    margin-left:30px !important;
-    margin-bottom:10px !important;
+    margin-left: 30px !important;
+    margin-bottom: 10px !important;
   }
-  .cardprop{
-    width:280px !important;
-    justify-self:center !important;
+
+  .cardprop {
+    width: 280px !important;
+    justify-self: center !important;
     margin-right: 30px !important;
-    margin-left:30px !important;
-    margin-bottom:10px !important;
+    margin-left: 30px !important;
+    margin-bottom: 10px !important;
   }
-  .bi-image{
-    height:45px !important;
+
+  .bi-image {
+    height: 45px !important;
   }
-  .dropzone p{
-    font-size:14px !important;
+
+  .dropzone p {
+    font-size: 14px !important;
   }
-  .dropzone{
-    padding:15px !important;
+
+  .dropzone {
+    padding: 15px !important;
   }
-  #dragndrop{
-    margin-left:0px !important;
-    font-family:'Poppins';
+
+  #dragndrop {
+    margin-left: 0px !important;
+    font-family: 'Poppins';
   }
 }
 
-*{
-  box-sizing: unset ;
+* {
+  box-sizing: unset;
 }
 
 
@@ -476,7 +489,7 @@ code {
   padding: 0;
   box-sizing: border-box;
 }  */
-nav{
+nav {
   display: flex;
   height: 70px;
   width: 100%;
@@ -485,13 +498,14 @@ nav{
   justify-content: space-between;
   padding: 0 50px 0 100px;
   flex-wrap: wrap;
-  box-sizing:border-box;
-  margin:0;
-  position:fixed;
-  top:0;
-  z-index:2;
+  box-sizing: border-box;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
-nav .logo{
+
+nav .logo {
   color: #fff;
   font-size: 22px;
   font-weight: 600;
@@ -499,20 +513,24 @@ nav .logo{
   font-weight: 700;
   filter: drop-shadow(rgb(0, 0, 0) 1.975px 1.975px 0px);
 }
-nav ul{
+
+nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  box-sizing:border-box;
-  margin:0;
-  padding-left:0;
+  box-sizing: border-box;
+  margin: 0;
+  padding-left: 0;
 }
-nav ul li{
+
+nav ul li {
   margin: 0 15px;
 }
-nav ul li a,.onclicker{
+
+nav ul li a,
+.onclicker {
   color: black;
-  background:white;
+  background: white;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -521,40 +539,48 @@ nav ul li a,.onclicker{
   letter-spacing: 1px;
   border-radius: 8px;
   filter: drop-shadow(rgb(0, 0, 0) 3.375px 3.375px 0px);
-  border:none;
+  border: none;
   /* transition: all 0.3s ease; */
 }
-.onclicker{
+
+.onclicker {
   cursor: pointer;
 }
+
 nav ul li a.active,
-nav ul li a:hover{
+nav ul li a:hover {
   color: white;
   background: black;
 }
-nav .menu-btn i{
+
+nav .menu-btn i {
   color: #fff;
   font-size: 22px;
   cursor: pointer;
   display: none;
   filter: drop-shadow(rgb(0, 0, 0) 1.975px 1.975px 0px);
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
   display: none;
 }
-@media (max-width: 1000px){
-  nav{
+
+@media (max-width: 1000px) {
+  nav {
     padding: 0 40px 0 50px;
   }
 }
+
 @media (max-width: 920px) {
-  nav .menu-btn i{
+  nav .menu-btn i {
     display: block;
   }
-  #click:checked ~ .menu-btn i:before{
+
+  #click:checked~.menu-btn i:before {
     content: "\f00d";
   }
-  nav ul{
+
+  nav ul {
     position: fixed;
     top: 70px;
     left: -100%;
@@ -566,30 +592,37 @@ input[type="checkbox"]{
     /* border-top:1px solid #b8b8b8; */
     /* transition: all 0.3s ease; */
   }
-  #click:checked ~ ul{
+
+  #click:checked~ul {
     left: 0;
   }
-  nav ul li{
+
+  nav ul li {
     width: 100%;
     margin: 40px 0;
   }
-  nav ul li a,.onclicker{
+
+  nav ul li a,
+  .onclicker {
     /* width: 100%; */
     margin-left: -100%;
     display: initial;
     font-size: 20px;
     /* transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
   }
-  #click:checked ~ ul li a{
+
+  #click:checked~ul li a {
     margin-left: 0px;
   }
+
   /* nav ul li a.active,
   nav ul li a:hover{
     background: none;
     color: cyan;
   } */
 }
-.content{
+
+.content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -600,7 +633,8 @@ input[type="checkbox"]{
   padding: 0 30px;
   color: #1b1b1b;
 }
-.content div{
+
+.content div {
   font-size: 40px;
   font-weight: 700;
 }

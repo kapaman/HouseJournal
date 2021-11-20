@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
-  Switch, Route, Link, useParams
+  Link
 } from "react-router-dom"
 
 const Navi = (props) => {
@@ -15,8 +14,6 @@ const Navi = (props) => {
       </label>
       <ul>
       <li><Link to="/properties" >Properties</Link></li>
-      <li><Link to={{ pathname: "https://www.github.com/kapaman" }} target="_blank" >Github</Link></li>
-
         <li><a className="onclicker" onClick={() => props.setShow(!props.show)} >{props.addNew}</a></li>
       </ul>
     </nav>
