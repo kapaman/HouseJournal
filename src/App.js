@@ -21,13 +21,13 @@ const App = () => {
   let [showView, setShowView] = useState(false);
 
   useEffect(() => {
-    axios.get("http://192.168.18.163:3001/properties").then((response) => {
+    axios.get("http://localhost:3001/properties").then((response) => {
       setProperties(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("http://192.168.18.163:3001/views").then((response) => {
+    axios.get("http://localhost:3001/views").then((response) => {
       setViews(response.data);
     });
   }, []);

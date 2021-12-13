@@ -44,7 +44,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
     };
     //console.log("newproperty",newProperty);
     axios
-      .post(`http://192.168.18.163:3001/properties`, newProperty)
+      .post(`http://localhost:3001/properties`, newProperty)
       .then((response) => {
         //console.log(response.data);
         let newproperties = properties.concat(response.data);

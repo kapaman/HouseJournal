@@ -414,10 +414,10 @@
       "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bathroom-shelf-ideas-hbx120119scherer-005-1580423923.jpg?crop=1.00xw:0.671xh;0,0.282xh&resize=640:*",
       "parts": [
         {
-          "name": "Kitchen",
-          "img": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/4/23/1/HUHH2018-Curb-Appeal_Seattle-WA_11.jpg.rend.hgtvcom.966.644.suffix/1524514638493.jpeg",
-          "description": "Reprehenderit cupidatat tempor ut magna tempor. Est ex quis nostrud nulla mollit ex.",
-          "rating": 3.8
+          "name": "dining room",
+          "img": "https://www.janelockhart.com/blog/wp-content/uploads/2018/07/Fergus-2-Dining-Room-B-Hi-res-DSC_2872-copy-1200x801.jpg",
+          "description": "Aliqua dolore eiusmod minim qui ea elit esse tempor sint nostrud veniam ullamco. Lorem veniam ex magna sint in excepteur tempor.",
+          "rating": 4.4
         },
         {
           "name": "Bedroom",
@@ -426,10 +426,16 @@
           "rating": 4
         },
         {
-          "name": "bathroom",
-          "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bathroom-shelf-ideas-hbx120119scherer-005-1580423923.jpg?crop=1.00xw:0.671xh;0,0.282xh&resize=640:*",
-          "description": "Irure consectetur dolor quis veniam labore eu ipsum in ullamco culpa. Do irure cupidatat id quis proident.",
-          "rating": 1.8
+          "name": "Back Yard",
+          "img": "https://www.mymove.com/wp-content/uploads/2020/05/Small-backyard_Artazum_Shutterstock-4-scaled.jpg",
+          "description": "Occaecat incididunt ullamco anim elit aliqua commodo ipsum qui sint quis minim ad. Adipisicing minim sit irure ipsum.",
+          "rating": 3.9
+        },
+        {
+          "name": "Kitchen",
+          "img": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/4/23/1/HUHH2018-Curb-Appeal_Seattle-WA_11.jpg.rend.hgtvcom.966.644.suffix/1524514638493.jpeg",
+          "description": "Reprehenderit cupidatat tempor ut magna tempor. Est ex quis nostrud nulla mollit ex.",
+          "rating": 3.8
         },
         {
           "name": "Living Room",
@@ -438,10 +444,10 @@
           "rating": 3.8
         },
         {
-          "name": "dining room",
-          "img": "https://www.janelockhart.com/blog/wp-content/uploads/2018/07/Fergus-2-Dining-Room-B-Hi-res-DSC_2872-copy-1200x801.jpg",
-          "description": "Aliqua dolore eiusmod minim qui ea elit esse tempor sint nostrud veniam ullamco. Lorem veniam ex magna sint in excepteur tempor.",
-          "rating": 4.4
+          "name": "garage",
+          "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/garage-high-res-stock-photography-1574439186.jpg?crop=1xw:0.75xh;center,top&resize=1200:*",
+          "description": "Laboris excepteur esse id aliquip pariatur duis eu in dolore anim incididunt voluptate duis. Cillum magna sint reprehenderit et irure duis.",
+          "rating": 2.7
         },
         {
           "name": "nursery",
@@ -450,18 +456,13 @@
           "rating": 1.9
         },
         {
-          "name": "garage",
-          "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/garage-high-res-stock-photography-1574439186.jpg?crop=1xw:0.75xh;center,top&resize=1200:*",
-          "description": "Laboris excepteur esse id aliquip pariatur duis eu in dolore anim incididunt voluptate duis. Cillum magna sint reprehenderit et irure duis.",
-          "rating": 2.7
-        },
-        {
-          "name": "Back Yard",
-          "img": "https://www.mymove.com/wp-content/uploads/2020/05/Small-backyard_Artazum_Shutterstock-4-scaled.jpg",
-          "description": "Occaecat incididunt ullamco anim elit aliqua commodo ipsum qui sint quis minim ad. Adipisicing minim sit irure ipsum.",
-          "rating": 3.9
+          "name": "bathroom",
+          "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bathroom-shelf-ideas-hbx120119scherer-005-1580423923.jpg?crop=1.00xw:0.671xh;0,0.282xh&resize=640:*",
+          "description": "Irure consectetur dolor quis veniam labore eu ipsum in ullamco culpa. Do irure cupidatat id quis proident.",
+          "rating": 1.8
         }
-      ]
+      ],
+      "rating": "3.8"
     },
     {
       "_id": "60bb5570f8f2be435b41a710",
@@ -726,70 +727,6 @@
           "rating": 5
         }
       ]
-    },
-    {
-      "img": "http://placehold.it/512x512",
-      "address": "Chandgar",
-      "beds": 11,
-      "bathrooms": 11,
-      "area": 121,
-      "price": "$213",
-      "parts": [
-        {
-          "name": "Bathroom",
-          "description": "aaa",
-          "rating": 5
-        },
-        {
-          "name": "Attic",
-          "description": "aa",
-          "rating": 3
-        },
-        {
-          "name": "Chimney",
-          "description": "aasdf",
-          "rating": 3
-        },
-        {
-          "name": "Dining Room",
-          "description": "",
-          "rating": 3
-        },
-        {
-          "name": "Laundry Room",
-          "description": "aaa",
-          "rating": 3
-        }
-      ],
-      "_id": "0YfGwJC",
-      "rating": 3.1818181818181817
-    },
-    {
-      "img": "http://placehold.it/512x512",
-      "address": "Mohali",
-      "beds": 123,
-      "bathrooms": 123,
-      "area": 123,
-      "price": "$123",
-      "parts": [
-        {
-          "name": "Driveway",
-          "description": "asdf",
-          "rating": 4
-        },
-        {
-          "name": "Basement",
-          "description": "great",
-          "rating": 4
-        },
-        {
-          "name": "Chimney",
-          "description": "great",
-          "rating": 5
-        }
-      ],
-      "_id": "ljchKLW",
-      "rating": "4.0"
     }
   ]
 }
