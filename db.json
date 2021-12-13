@@ -729,56 +729,67 @@
     },
     {
       "img": "http://placehold.it/512x512",
-      "address": "Chandigarh",
-      "beds": 1,
-      "bathrooms": 21,
-      "area": 2,
-      "price": "$11",
+      "address": "Chandgar",
+      "beds": 11,
+      "bathrooms": 11,
+      "area": 121,
+      "price": "$213",
       "parts": [
         {
-          "img": "http://placehold.it/512x512",
-          "name": "Chimney",
-          "description": "",
+          "name": "Bathroom",
+          "description": "aaa",
           "rating": 5
         },
         {
-          "img": "http://placehold.it/512x512",
-          "name": "Gym",
-          "description": "good gym",
-          "rating": 4
-        },
-        {
-          "img": "http://placehold.it/512x512",
           "name": "Attic",
-          "description": "bad attic",
-          "rating": 1
+          "description": "aa",
+          "rating": 3
         },
         {
-          "img": "http://placehold.it/512x512",
-          "name": "Garage",
-          "description": "meh",
-          "rating": 0.5
+          "name": "Chimney",
+          "description": "aasdf",
+          "rating": 3
         },
         {
-          "img": "http://placehold.it/512x512",
-          "name": "Bedroom",
-          "description": "ass",
-          "rating": 0.5
+          "name": "Dining Room",
+          "description": "",
+          "rating": 3
+        },
+        {
+          "name": "Laundry Room",
+          "description": "aaa",
+          "rating": 3
         }
       ],
-      "_id": "Ly0jEce",
-      "rating": "3.0",
-      "stars": "2.9"
+      "_id": "0YfGwJC",
+      "rating": 3.1818181818181817
     },
     {
       "img": "http://placehold.it/512x512",
-      "address": "3123 Mohali, Punjab",
-      "beds": 3,
-      "bathrooms": 2,
-      "area": 8,
-      "price": "$5,000,000",
-      "parts": [],
-      "_id": "jDqGTAX"
+      "address": "Mohali",
+      "beds": 123,
+      "bathrooms": 123,
+      "area": 123,
+      "price": "$123",
+      "parts": [
+        {
+          "name": "Driveway",
+          "description": "asdf",
+          "rating": 4
+        },
+        {
+          "name": "Basement",
+          "description": "great",
+          "rating": 4
+        },
+        {
+          "name": "Chimney",
+          "description": "great",
+          "rating": 5
+        }
+      ],
+      "_id": "ljchKLW",
+      "rating": "4.0"
     }
   ]
 }

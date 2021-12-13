@@ -39,10 +39,10 @@ const AddView2 = ({ props, handleSubmit }) => {
       setWeight(finder.weight);
     }
   }
-//console.log(window.innerWidth);
+  //console.log(window.innerWidth);
 
   return (
-    <form onSubmit={handleSubmit} style={{display:'grid'}}>
+    <form onSubmit={handleSubmit} style={{ display: 'grid' }}>
       <div className="card cardview" style={{
         backgroundColor: 'white', color: 'black', display: 'grid', width: '350px', gridGap: '15px', padding: '20px 20px 20px 20px', border: '0.5px solid #b0b0b0', borderRadius: '20px', boxShadow: '1px 1px 4px 1px rgba(0, 0, 0, 0.25)', position: "fixed",
         bottom: "0",
@@ -68,7 +68,7 @@ const AddView2 = ({ props, handleSubmit }) => {
           input={{ border: "0.3px solid rgb(11, 31, 223)", borderRadius: '10px' }}
           style={{ fontFamily: 'Poppins' }}
           getOptionLabel={(option) => option.name}
-          renderInput={(params) => <TextField {...params} size={window.innerWidth<550?"small":"medium"} label="Title" variant="outlined" />}
+          renderInput={(params) => <TextField {...params} size={window.innerWidth < 550 ? "small" : "medium"} label="Title" variant="outlined" />}
         /></div>
 
 
@@ -79,7 +79,7 @@ const AddView2 = ({ props, handleSubmit }) => {
 
 
         <div className="textarea" style={{ display: 'grid', fontFamily: '"Poppins"', fontWeight: 200 }}><TextField multiline size="small"
-          rows={2} id="outlined-basic" label="Description(optional)" inputProps={{ maxLength: 70 }} variant="outlined"/></div>
+          rows={2} id="outlined-basic" label="Description(optional)" inputProps={{ maxLength: 70 }} variant="outlined" /></div>
 
 
 
@@ -95,7 +95,7 @@ const AddView2 = ({ props, handleSubmit }) => {
             min={0.5}
             max={5}
             style={{ color: '#364cff' }}
-          /><span className="rating" style={{ gridColumnStart: 4, gridColumnEnd: 5, textAlign: 'center', background: 'white', color: 'black', border: '0.1px solid rgba(0, 0, 0, 0.65)', boxShadow: '2px 2px 0px #000000', borderRadius: '12px', padding: '5px 20px 5px 20px', fontSize: '12px', fontFamily: '"Poppins"', fontWeight: 600 ,minWidth:'19px'}}>{rating}</span>
+          /><span className="rating" style={{ gridColumnStart: 4, gridColumnEnd: 5, textAlign: 'center', background: 'white', color: 'black', border: '0.1px solid rgba(0, 0, 0, 0.65)', boxShadow: '2px 2px 0px #000000', borderRadius: '12px', padding: '5px 20px 5px 20px', fontSize: '12px', fontFamily: '"Poppins"', fontWeight: 600, minWidth: '19px' }}>{rating}</span>
         </div>
         <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '67% auto' }}>
           <p className="ratingpara" style={{ marginBottom: '10px', marginTop: '0px', gridColumnStart: 1, gridColumnEnd: 5, fontFamily: '"Poppins"', fontWeight: 300, fontSize: '15px' }}>Weight</p>
@@ -128,13 +128,14 @@ const AddView = (props) => {
 
 
     // send only the new part
+    console.log(id);
     axios
-      .put(`http://localhost:5050/properties/${id}`, currentParts)
+      .put(`http://192.168.18.163:3001/properties/${id}`, currentProp)
       .then((response) => {
         //console.log(response," from put to parts");
         let newproperties = props.properties.map((el) => {
-          if (toString(el._id) === toString(id)) {
-            return { ...currentProp, parts: [...(currentProp.parts),currentParts] };
+          if ((el._id).toString() === (id).toString()) {
+            return { ...currentProp, parts: [...currentParts] };
           } else return el;
         });
         props.setProperties(newproperties);
@@ -149,7 +150,7 @@ const AddView = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     //console.log("You rated it ", parseFloat(parseFloat(event.target[7].value).toFixed(1)))
-    let currentProp = props.properties.find((el) => toString(el._id) === toString(id));
+    let currentProp = props.properties.find((el) => (el._id).toString() === (id).toString());
     let newrating;
     let newWeight = parseFloat(parseFloat(event.target[8].value).toFixed(1));
     //console.log(event.target);
@@ -176,13 +177,17 @@ const AddView = (props) => {
       }
     }
 
-    currentParts = {
-        //img: "http://placehold.it/512x512",
+    currentParts = [
+      ...currentParts,
+      //img: "http://placehold.it/512x512",
+      {
         name: event.target[1].value,
         description: event.target[5].value,
-        rating: parseFloat(parseFloat(event.target[7].value).toFixed(1))
-    };
-   
+        rating: parseFloat(parseFloat(event.target[7].value).toFixed(1)),
+      }
+    ];
+    currentProp.parts = currentParts;
+
 
     numerator += parseFloat(parseFloat(event.target[7].value).toFixed(1)) * newWeight;
     denominator += newWeight;
@@ -194,7 +199,7 @@ const AddView = (props) => {
     //console.log(finder);
     if (parseFloat(finder.weight) !== newWeight) {
       //console.log(finder);
-      axios.put(`http://localhost:5050/views/${finder._id}`, { ...finder, weight: newWeight })
+      axios.put(`http://192.168.18.163:3001/views/${finder._id}`, { ...finder, weight: newWeight })
         .then(res => {
           let newViews = props.views.map(el => {
             if (el.name === finder.name) {
