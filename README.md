@@ -1,10 +1,10 @@
 <h1 style="text-align:center;margin-bottom:50px;">House Journal</h1>
 
 <br>
-<img src="https://i.ibb.co/B2P4tVd/1.png" style="margin:auto;margin-bottom:31px;" width="49%" height="auto">
-<img src="https://i.ibb.co/gRLYSVp/2.png" style="margin:auto;margin-bottom:30px;" width="49%" height="auto">
-<img src="https://i.ibb.co/M2gZR1c/3.png" style="margin:auto;margin-bottom:30px;" width="49%" height="auto">
-<img src="https://i.ibb.co/gZvTVRV/4.png" style="margin:auto;margin-bottom:30px;" width="49%" height="auto">
+<img src="https://i.ibb.co/B2P4tVd/1.png" style="margin:auto;margin-bottom:31px;" width="425" height="auto">
+<img src="https://i.ibb.co/gRLYSVp/2.png" style="margin:auto;margin-bottom:30px;" width="425" height="auto">
+<img src="https://i.ibb.co/M2gZR1c/3.png" style="margin:auto;margin-bottom:30px;" width="425" height="auto">
+<img src="https://i.ibb.co/gZvTVRV/4.png" style="margin:auto;margin-bottom:30px;" width="425" height="auto">
 
 
 
