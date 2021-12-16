@@ -6,7 +6,7 @@ import DragDrop from "./DragDrop";
 const AddProperty = ({ show, setShow, properties, setProperties }) => {
   // const id = useParams().id;
   //console.log(properties, setProperties);
-  const [image, setImage] = useState(0);
+  const [image, setImage] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log(event.target);
@@ -16,15 +16,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
         console.log(event.target[i].value);
       }
     }
-
-    //console.log('--------------');
-    //console.log(event.target[0].value);
-    //console.log(event.target[2].value);
-    //console.log(event.target[4].value);
-    //console.log(event.target[6].value);
-    //console.log(event.target[8].value);
-    //console.log('--------------');
-
+    console.log(image);
     var formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -34,7 +26,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
     let price = formatter.format(parseInt(event.target[3].value));
     //console.log(price);
     let newProperty = {
-      img: "http://placehold.it/512x512",
+      img: image !== null ? image : "http://placehold.it/512x512",
       address: event.target[1].value,
       beds: parseInt(event.target[7].value),
       bathrooms: parseInt(event.target[9].value),
@@ -42,18 +34,20 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
       price: price,
       parts: [],
     };
-    //console.log("newproperty",newProperty);
+    console.log("newproperty", newProperty);
     axios
-      .post(`http://localhost:3001/properties`, newProperty)
+      .post(`http://localhost:5050/properties`, newProperty)
       .then((response) => {
         //console.log(response.data);
         let newproperties = properties.concat(response.data);
         // //console.log(response.data);
         setProperties(newproperties);
         setShow(!show);
+        setImage(null);
       })
       .catch((err) => {
         //console.log(err);
+        setImage(null);
       });
   };
 
@@ -108,7 +102,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
           </svg>
             <p style={{ alignSelf: 'center', marginLeft: '20px', marginBottom: '10px', marginTop: '0px' }}>Drag and drop image, or Upload</p> */}
-          <DragDrop setImage={setImage}></DragDrop>
+          <DragDrop setImage={setImage} height={400} width={400} quality={100}></DragDrop>
 
           <div
             className="textarea"

@@ -1,11 +1,53 @@
 import React, { useCallback, useState } from 'react';
+import imageCompression from 'browser-image-compression';
 import { useDropzone } from 'react-dropzone';
+
+
+function blobToBase64(blob) {
+    return new Promise((resolve, _) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+    });
+}
+
+async function handleImageUpload(maxHeight, maxSize, file, setImage) {
+
+    const imageFile = file;
+
+    const options = {
+        maxSizeMB: maxSize,
+        maxWidthOrHeight: maxHeight,
+        useWebWorker: true
+    }
+    try {
+        const compressedFile = await imageCompression(imageFile, options);
+        console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+        console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+        console.log(compressedFile);
+        blobToBase64(compressedFile).then(el => setImage(el));
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 
 const DragDrop = (props) => {
     const [files, setFiles] = useState(0);
     const onDrop = useCallback(acceptedFiles => {
-        console.log(acceptedFiles);
-        props.setImage(acceptedFiles);
+        console.log(acceptedFiles[0]);
+        // resizeFile(acceptedFiles[0], props.height, props.width, props.quality).then(el => {
+        //     console.log(el);
+        //     props.setImage(el);
+        // });
+        // const reader = new FileReader();
+        // reader.readAsDataURL(acceptedFiles[0]);
+        // reader.onload = (event) => {
+        //     console.log(event.target.result);
+        //     props.setImage(event.target.result);
+        // };
+        handleImageUpload(props.height, 0, acceptedFiles[0], props.setImage);
         setFiles(acceptedFiles.map(file => {
             return (
                 <li key={file.path}>
@@ -32,13 +74,8 @@ const DragDrop = (props) => {
                 {
                     (files.length > 0) ? <div style={{ padding: '0px 20px 0px 20px' }}>
                         <p>{files.length > 0 ? files : null}</p>
-                        {/* <ul>{files}</ul> */}
                     </div> : null
                 }
-                {/* <div style={{padding:'10px'}}>
-                    <h4>{files.length > 0 ? files : null}</h4>
-                    <ul>{files}</ul>
-                </div> */}
 
             </div>
         </section>

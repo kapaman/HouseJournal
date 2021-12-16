@@ -8,8 +8,9 @@ import {
 import Slider from '@material-ui/core/Slider';
 import DragDrop from "./DragDrop";
 
-const AddView2 = ({ props, handleSubmit }) => {
+const AddView2 = ({ props, handleSubmit, image, setImage }) => {
   //console.log("from addview2", props)
+
   const [weight, setWeight] = useState(3);
   const [rating, setRating] = useState(3);
 
@@ -57,7 +58,7 @@ const AddView2 = ({ props, handleSubmit }) => {
           </svg>
           <p style={{ alignSelf: 'center', marginLeft: '20px', marginBottom: '10px', marginTop: '0px' }}>Drag and drop image, or Upload</p>
         </div> */}
-        <DragDrop></DragDrop>
+        <DragDrop setImage={setImage} height={300} width={300} quality={80}></DragDrop>
         {/* <div className="inputrating" style={{ display: 'grid', gridTemplateColumns: '67% auto' }}><input className="title" placeholder="Title" style={{ width: '230px', gridColumnStart: 1, gridColumnEnd: 3, marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px' }} /> <span className="rating" style={{ fontFamily: '"Poppins"', fontSize: '13px', padding: '5px 30px', gridColumnStart: 4, gridColumnEnd: 5, textAlign: 'center', background: 'white', color: 'black', border: '0.1px solid rgba(0, 0, 0, 0.65)', boxShadow: '2px 2px 0px #000000', borderRadius: '12px', fontWeight: 600 }}>{rating}</span></div> */}
 
 
@@ -121,16 +122,17 @@ const AddView2 = ({ props, handleSubmit }) => {
 
 const AddView = (props) => {
   //console.log("these are the props", props);
+  const [image, setImage] = useState(null);
   const id = useParams().id;
   //console.log(props.views);
 
-  const handleAddView = (newrating, currentParts, currentProp) => {
+  const handleAddView = (newrating, currentParts, currentProp, newPart) => {
 
 
     // send only the new part
-    console.log(id);
+    console.log(currentProp);
     axios
-      .put(`http://localhost:3001/properties/${id}`, currentProp)
+      .put(`http://localhost:5050/properties/${id}`, newPart)
       .then((response) => {
         //console.log(response," from put to parts");
         let newproperties = props.properties.map((el) => {
@@ -181,13 +183,19 @@ const AddView = (props) => {
       ...currentParts,
       //img: "http://placehold.it/512x512",
       {
+        img: image !== null ? image : "http://placehold.it/512x512",
         name: event.target[1].value,
         description: event.target[5].value,
         rating: parseFloat(parseFloat(event.target[7].value).toFixed(1)),
       }
     ];
     currentProp.parts = currentParts;
-
+    let newPart = {
+      img: image !== null ? image : "http://placehold.it/512x512",
+      name: event.target[1].value,
+      description: event.target[5].value,
+      rating: parseFloat(parseFloat(event.target[7].value).toFixed(1)),
+    };
 
     numerator += parseFloat(parseFloat(event.target[7].value).toFixed(1)) * newWeight;
     denominator += newWeight;
@@ -199,7 +207,7 @@ const AddView = (props) => {
     //console.log(finder);
     if (parseFloat(finder.weight) !== newWeight) {
       //console.log(finder);
-      axios.put(`http://localhost:3001/views/${finder._id}`, { ...finder, weight: newWeight })
+      axios.put(`http://localhost:5050/views/${finder._id}`, { ...finder, weight: newWeight })
         .then(res => {
           let newViews = props.views.map(el => {
             if (el.name === finder.name) {
@@ -210,9 +218,9 @@ const AddView = (props) => {
           props.setViews(newViews);
           return newViews;
         })
-        .then(res => handleAddView(newrating, currentParts, currentProp));
+        .then(res => handleAddView(newrating, currentParts, currentProp, newPart));
     } else {
-      handleAddView(newrating, currentParts, currentProp);
+      handleAddView(newrating, currentParts, currentProp, newPart);
     };
 
   }
@@ -244,7 +252,7 @@ const AddView = (props) => {
       </svg>)
   } else {
     return (
-      <AddView2 props={props} handleSubmit={handleSubmit}></AddView2>
+      <AddView2 props={props} handleSubmit={handleSubmit} image={image} setImage={setImage}></AddView2>
       // <div
       //   style={{
       //     position: "fixed",

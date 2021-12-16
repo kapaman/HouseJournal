@@ -27,10 +27,11 @@ const Main = (props) => {
           denominator += finder.weight;
         }
       }
-      if (numerator === 0 || denominator === 0) newproperties.rating = 0;
+      if (numerator === 0 || denominator === 0) newproperties[j].rating = 0;
       else newproperties[j].rating = numerator / denominator;
       //console.log("rating for house ", newproperties[j].address, " is ", numerator / denominator)
     }
+    // console.log(newproperties.sort((a, b) => b.rating !== undefined ? b.rating : 0 - a.rating !== undefined ? a.rating : 0));
   };
 
   calculateRating();
