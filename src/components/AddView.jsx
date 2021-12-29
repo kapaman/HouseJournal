@@ -132,7 +132,7 @@ const AddView = (props) => {
     // send only the new part
     console.log(currentProp);
     axios
-      .put(`http://localhost:5050/properties/${id}`, newPart)
+      .put(`https://whats-good-backend-kapaman.vercel.app/properties/${id}`, newPart)
       .then((response) => {
         //console.log(response," from put to parts");
         let newproperties = props.properties.map((el) => {
@@ -208,7 +208,7 @@ const AddView = (props) => {
     //console.log(finder);
     if (parseFloat(finder.weight) !== newWeight) {
       //console.log(finder);
-      axios.put(`http://localhost:5050/views/${finder._id}`, { ...finder, weight: newWeight })
+      axios.put(`https://whats-good-backend-kapaman.vercel.app/views/${finder._id}`, { ...finder, weight: newWeight })
         .then(res => {
           let newViews = props.views.map(el => {
             if (el.name === finder.name) {

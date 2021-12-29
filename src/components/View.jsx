@@ -15,7 +15,7 @@ const AllViews = (props) => {
     const selectedProp = props.properties.find(el => el._id === id);
     if (selectedProp) {
       if (selectedProp.parts.length > 0 && selectedProp.parts[0].img === undefined) {
-        axios.get("http://localhost:5050/properties/" + id).then((response) => {
+        axios.get("https://whats-good-backend-kapaman.vercel.app/properties/" + id).then((response) => {
           let propertyWithImage = props.properties.map(el => el._id === id ? response.data[0] : el);
           props.setProperties(propertyWithImage);
           setSelectedProperty(response.data[0]);

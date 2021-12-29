@@ -36,7 +36,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
     };
     console.log("newproperty", newProperty);
     axios
-      .post(`http://localhost:5050/properties`, newProperty)
+      .post(`https://whats-good-backend-kapaman.vercel.app/properties`, newProperty)
       .then((response) => {
         //console.log(response.data);
         let newproperties = properties.concat(response.data);
