@@ -113,11 +113,11 @@ export const PartViewInner = styled.div`
   flex-wrap: nowrap;
   width: 100%;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const PartUpperRow = styled.div`
-  margin-top: 5px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -130,8 +130,7 @@ export const PartTitle = styled.p`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 15px;
-  margin-bottom: 0;
+  margin:auto 0;
 `;
 
 export const PartRating = styled.p`
@@ -141,27 +140,27 @@ export const PartRating = styled.p`
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 16px;
-  margin: 10px;
   background-color: black;
   font-family: "Poppins";
   font-weight: 400;
   color: white;
-  padding: 0 25px;
+  padding: 1px 25px;
   border-radius: 10px;
   line-height: 1.5;
   text-align: center;
+  margin:auto 0;
 `;
 
 export const PartDesc = styled.p`
   color: #464646;
-  width: calc(100% - 30px);
+  // width: calc(100% -30px);
   font-family: "Poppins";
   font-size: 15px;
-  margin-top: 5px;
   font-weight: 200;
   line-height: 1.5;
   text-align: left;
   padding: 0 15px;
+  margin-top:10px;
 `;
 
 export const PartsContainer = styled.div`
@@ -170,7 +169,6 @@ export const PartsContainer = styled.div`
   justify-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: white;
   row-gap: 25px;
   column-gap: 50px;
   margin-top: 30px;

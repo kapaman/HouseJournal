@@ -11,13 +11,15 @@ import {
 } from "../styles/AllView.styled";
 
 const PartView = (props) => {
-  if (props.properties === null) {
-    return <p>Loading...</p>;
+  if (props.properties === null || props.selectedProperty === null) {
+    return <p style={{ textAlign: "center" }}>Fetching Content...</p>;
   }
 
-  let sortedParts = props.properties.find(
-    (el) => el._id.toString() === props.id.toString()
-  ).parts;
+  // let sortedParts = props.properties.find(
+  //   (el) => el._id.toString() === props.id.toString()
+  // ).parts;
+
+  let sortedParts = props.selectedProperty.parts;
   sortedParts.sort((a, b) => {
     return b.rating - a.rating;
   });

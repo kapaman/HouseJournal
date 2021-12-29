@@ -42,6 +42,7 @@ export const HouseCardAddress = styled.p`
   text-align: center;
   font-family: Poppins;
   justify-content: center;
+  line-height:1.5;
 `;
 
 export const HouseCardArrow = styled.p`

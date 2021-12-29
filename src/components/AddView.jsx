@@ -140,6 +140,7 @@ const AddView = (props) => {
             return { ...currentProp, parts: [...currentParts] };
           } else return el;
         });
+        props.setSelectedProperty({ ...props.selectedProperty, parts: [...(props.selectedProperty.parts), newPart] });
         props.setProperties(newproperties);
         props.setShow(!props.show);
       }).catch(err => {
