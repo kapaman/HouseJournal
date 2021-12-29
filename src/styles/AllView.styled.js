@@ -76,6 +76,10 @@ export const IconWrapper = styled.p`
   column-gap: 4px;
   font-weight: 200;
   line-height: 1.5;
+  @media (max-width: 420px) {
+    font-size:12px;
+  }
+  
 `;
 
 export const PartsWrapper = styled.div`
