@@ -4,9 +4,7 @@ Add info about various parts of all houses/properties you view and compare to ma
 
 <br>
 <img src="https://www.linkpicture.com/q/1_78.png" style="margin:auto;margin-bottom:30px;" width="70%" height="auto">
-<img src="https://i.ibb.co/gRLYSVp/2.png" style="margin:auto;margin-bottom:30px;" width="70%" height="auto">
 <img src="https://i.ibb.co/M2gZR1c/3.png" style="margin:auto;margin-bottom:30px;" width="70%" height="auto">
-<img src="https://i.ibb.co/gZvTVRV/4.png" style="margin:auto;margin-bottom:30px;" width="70%" height="auto">
 
 
 
@@ -14,7 +12,7 @@ Add info about various parts of all houses/properties you view and compare to ma
 
 ## How to Access
 
-### Hosted Using Vercel at : https://house-journal.vercel.app/
+#### Deployed Using Vercel at : https://house-journal.vercel.app/
 
 
 To run locally:
