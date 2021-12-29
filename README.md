@@ -12,6 +12,9 @@ Add info about various parts of all houses/properties you view and compare to ma
 
 <hr>
 
+Hosted Using Vercel at : https://house-journal.vercel.app/
+
+
 To run locally:
 1) npm run start
 2) npm run server
