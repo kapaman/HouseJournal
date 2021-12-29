@@ -12,7 +12,9 @@ Add info about various parts of all houses/properties you view and compare to ma
 
 <hr>
 
-Hosted Using Vercel at : https://house-journal.vercel.app/
+## How to Access
+
+# Hosted Using Vercel at : https://house-journal.vercel.app/
 
 
 To run locally:
