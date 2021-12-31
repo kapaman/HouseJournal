@@ -15,7 +15,7 @@ import {
 
 const OverViewDesigned = (props) => {
   console.log("from overView designed ", props);
-  if (props.properties == null || props.views == null) return <p>Loading...</p>;
+  if (props.properties == null || props.views == null) return <p style={{ fontSize: "1.1rem", textAlign: "center", fontFamily: "Poppins", maxWidth: "1100px", width: '92%', margin: 'auto', marginTop: '6rem', }}>Fetching Content...</p>;;
 
   let newproperties = props.properties.find(
     (el) => (el._id).toString() === (props.id).toString()
