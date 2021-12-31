@@ -13,6 +13,7 @@ import Navi from "./components/Navi";
 import "./index.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Main from "./components/Main";
+import About from "./components/About";
 
 const App = () => {
   let [properties, setProperties] = useState([]);
@@ -63,6 +64,12 @@ const App = () => {
               setShow={setShowProperty}
               properties={properties}
               setProperties={setProperties}></AddProperty>
+          </Route>
+          <Route path="/about">
+            <Navi
+              setShow={setShowProperty}
+              addNew="add Property"></Navi>
+            <About />
           </Route>
           <Route path="/">
             <Redirect to="properties"></Redirect>

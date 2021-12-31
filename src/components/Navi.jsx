@@ -7,14 +7,17 @@ const Navi = (props) => {
   return (
 
     <nav>
-      <div className="logo"><Link to="/properties" style={{textDecoration:'none',color:'white'}}>HouseJournal</Link></div>
+      <div className="logo"><Link to="/properties" style={{ textDecoration: 'none', color: 'white' }}>HouseJournal</Link></div>
       <input type="checkbox" id="click" />
       <label htmlFor="click" className="menu-btn">
         <i className="fa fa-bars" />
       </label>
       <ul>
-      <li><Link to="/properties" >Properties</Link></li>
-        <li><a className="onclicker" onClick={() => props.setShow(!props.show)} >{props.addNew}</a></li>
+        <li><Link to="/about" >About</Link></li>
+        <li><Link to="/properties" >Properties</Link></li>
+        {props.show !== undefined ?
+          <li><a className="onclicker" onClick={() => props.setShow(!props.show)} >{props.addNew}</a></li> : null}
+
       </ul>
     </nav>
   )
