@@ -4,7 +4,7 @@ import HouseCard2 from "./HouseCard";
 
 const Main = (props) => {
   if (props.properties === null || props.views === null) {
-    return null;
+    return <p style={{ fontSize: "1.1rem", textAlign: "center", fontFamily: "Poppins", maxWidth: "1100px", width: '92%', margin: 'auto', marginTop: '6rem', }}>Fetching Content...</p>;
   }
   console.log(props);
   let newproperties = props.properties;
