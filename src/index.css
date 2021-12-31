@@ -534,9 +534,10 @@ nav ul li a,
   color: black;
   background: white;
   text-decoration: none;
+  font-family: "Poppins";
   font-size: 15px;
-  font-weight: 500;
-  padding: 5px 15px;
+  font-weight: 400;
+  padding: 3.5px 22.5px;
   /* border-radius: 5px; */
   letter-spacing: 1px;
   border-radius: 8px;
