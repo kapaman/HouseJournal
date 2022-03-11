@@ -35,4 +35,3 @@ Used the following:
 
 Aman Kapoor - [@kapaman9](https://twitter.com/kapaman9)
 
-Please Note: This project is not yet fully complete.
