@@ -3,7 +3,8 @@
 Add info about various parts of all houses/properties you view and compare to make the best choice when buying a new house/property. 
 
 <br>
-<img src="https://i.ibb.co/M2gZR1c/3.png" style="margin:auto;margin-bottom:30px;" width="70%" height="auto">
+<img src="./1.png" style="margin:auto;margin-bottom:30px;" width="80%" height="auto">
+<img src="./3.png" style="margin:auto;margin-bottom:30px;" width="80%" height="auto">
 
 
 
