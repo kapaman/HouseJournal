@@ -10,7 +10,7 @@ import {
   HouseCardWrapper,
 } from "../styles/HouseCard.styled";
 
-const HouseCard2 = (props) => {
+const HouseCard = (props) => {
   return (
     <HouseCardWrapper className="view">
       <HouseCardImage
@@ -40,10 +40,12 @@ const HouseCard2 = (props) => {
             marginBottom: "15px",
             display: "grid",
             justifyContent: "center",
-          }}>
+          }}
+        >
           <Link
             to={`properties/${props.id}`}
-            style={{ textDecoration: "none", color: "black" }}>
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <HouseCardArrow className="ratinger">
               <img height={16} width={16} src={arrow} alt={"arrow"}></img>
             </HouseCardArrow>
@@ -54,4 +56,4 @@ const HouseCard2 = (props) => {
   );
 };
 
-export default HouseCard2;
+export default HouseCard;

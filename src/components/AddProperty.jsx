@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import DragDrop from "./DragDrop";
+import { useContext } from "react";
+import { DataContext } from "../App";
 
-const AddProperty = ({ show, setShow, properties, setProperties }) => {
-  // const id = useParams().id;
-  //console.log(properties, setProperties);
+const AddProperty = () => {
+  const { showProperty, setShowProperty, properties, setProperties } =
+    useContext(DataContext);
+  const show = showProperty,
+    setShow = setShowProperty;
   const [image, setImage] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target);
-    // //console.log(event.target, "coming from the ogssss.");
-    if (event.target) {
-      for (let i = 0; i < event.target.length; i++) {
-        console.log(event.target[i].value);
-      }
-    }
-    console.log(image);
+
     var formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -24,7 +21,7 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
     });
 
     let price = formatter.format(parseInt(event.target[3].value));
-    //console.log(price);
+
     let newProperty = {
       img: image !== null ? image : "http://placehold.it/512x512",
       address: event.target[1].value,
@@ -34,24 +31,24 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
       price: price,
       parts: [],
     };
-    console.log("newproperty", newProperty);
+
     axios
-      .post(`https://whats-good-backend-kapaman.vercel.app/properties`, newProperty)
+      .post(
+        `https://whats-good-backend-kapaman.vercel.app/properties`,
+        newProperty
+      )
       .then((response) => {
-        //console.log(response.data);
         let newproperties = properties.concat(response.data);
-        // //console.log(response.data);
         setProperties(newproperties);
         setShow(!show);
         setImage(null);
       })
       .catch((err) => {
-        //console.log(err);
         setImage(null);
+        console.log(err);
       });
   };
 
-  // let [show, setShow] = useState(false);
   if (show === false) {
     return (
       <svg
@@ -70,7 +67,8 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
         }}
         fill="currentColor"
         className="bi bi-plus-circle-fill"
-        viewBox="0 0 16 16">
+        viewBox="0 0 16 16"
+      >
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
       </svg>
     );
@@ -96,13 +94,14 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
             marginBottom: "50px",
             zIndex: "9",
             rowGap: "25px",
-          }}>
-          {/* <svg xmlns="http://www.w3.org/2000/svg" width={128} height={128} fill="rgba(11, 31, 223, 0.7)" className="bi bi-image" viewBox="0 0 16 16">
-            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-          </svg>
-            <p style={{ alignSelf: 'center', marginLeft: '20px', marginBottom: '10px', marginTop: '0px' }}>Drag and drop image, or Upload</p> */}
-          <DragDrop setImage={setImage} height={400} width={400} quality={100}></DragDrop>
+          }}
+        >
+          <DragDrop
+            setImage={setImage}
+            height={400}
+            width={400}
+            quality={100}
+          ></DragDrop>
 
           <div
             className="textarea"
@@ -111,8 +110,8 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
               gridTemplateColumns: "1fr",
               fontFamily: '"Poppins"',
               fontWeight: 200,
-            }}>
-            {/* <textarea className="description" placeholder="Address" style={{ gridColumnStart: 1, gridColumnEnd: 5, marginTop: '0px', borderRadius: '10px', fontFamily: '"Poppins"', border: '0.3px solid #0B1FDF', padding: '5px', fontSize: '13px' }} defaultValue={""} /> */}
+            }}
+          >
             <TextField
               multiline
               margin="none"
@@ -129,14 +128,13 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
               gridTemplateColumns: "1fr 1fr",
               width: "inherit",
               columnGap: "25px",
-            }}>
-            {/* <input className="title" id="price" placeholder="Price" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 1, gridColumnEnd: 2, width: '100%' }} /> */}
-
+            }}
+          >
             <TextField
               label="Price"
               variant="outlined"
-              size="small"></TextField>
-            {/* <input className="title" id="area" placeholder="Area" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', gridColumnStart: 2, gridColumnEnd: 3, width: '100%' }} /> */}
+              size="small"
+            ></TextField>
             <TextField label="Area" variant="outlined" size="small"></TextField>
           </div>
           <div
@@ -146,17 +144,18 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
               gridTemplateColumns: "1fr 1fr",
               width: "inherit",
               columnGap: "25px",
-            }}>
-            {/* <input className="title" id="price" placeholder="Bedrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} />
-            <input className="title" id="area" placeholder="Bathrooms" style={{ marginBottom: '0px', borderRadius: '10px', border: '0.3px solid #0B1FDF', fontFamily: '"Poppins"', fontSize: '14px', padding: '5px', width: '100%' }} /> */}
+            }}
+          >
             <TextField
               label="Bedrooms"
               variant="outlined"
-              size="small"></TextField>
+              size="small"
+            ></TextField>
             <TextField
               label="Bathrooms"
               variant="outlined"
-              size="small"></TextField>
+              size="small"
+            ></TextField>
           </div>
           <div
             className="buttons"
@@ -165,7 +164,8 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
               gridTemplateColumns: "auto auto auto auto auto",
               gridGap: "15px",
               marginTop: "10px",
-            }}>
+            }}
+          >
             <button
               className="cancel"
               onClick={() => setShow(!show)}
@@ -180,7 +180,8 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
                 fontSize: "17px",
                 border: "1px solid #727272",
                 fontWeight: 400,
-              }}>
+              }}
+            >
               cancel
             </button>
             <button
@@ -196,7 +197,8 @@ const AddProperty = ({ show, setShow, properties, setProperties }) => {
                 border: "none",
                 fontWeight: 400,
                 cursor: "pointer",
-              }}>
+              }}
+            >
               save
             </button>
           </div>

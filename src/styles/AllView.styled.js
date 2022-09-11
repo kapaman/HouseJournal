@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import backImage from "../images/back.png";
 export const RootContainer = styled.div`
   max-width: 1100px;
   width: 92%;
@@ -44,13 +44,26 @@ export const Rating = styled.p`
   align-items: center;
   font-size: 18px;
   margin-top: 40px;
-  background-color: black;
+  background-image: url(${backImage});
   font-family: "Poppins";
   font-weight: 400;
   color: white;
   padding: 0 30px 0 30px;
   border-radius: 10px;
   line-height: 1.5;
+  // background: rgb(0, 212, 255);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(0, 212, 255, 1) 0%,
+  //   rgba(9, 9, 121, 1) 51%,
+  //   rgba(4, 0, 69, 1) 100%
+  // );
+  background: rgb(86, 193, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(86, 193, 255, 1) 0%,
+    rgba(4, 0, 73, 1) 95%
+  );
 `;
 
 export const BottomRow = styled.div`
@@ -77,9 +90,8 @@ export const IconWrapper = styled.p`
   font-weight: 200;
   line-height: 1.5;
   @media (max-width: 420px) {
-    font-size:12px;
+    font-size: 12px;
   }
-  
 `;
 
 export const PartsWrapper = styled.div`
@@ -134,7 +146,7 @@ export const PartTitle = styled.p`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 500;
-  margin:auto 0;
+  margin: auto 0;
 `;
 
 export const PartRating = styled.p`
@@ -144,15 +156,36 @@ export const PartRating = styled.p`
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 16px;
-  background-color: black;
+  background-image: url(${backImage});
   font-family: "Poppins";
-  font-weight: 400;
+  font-weight: 500;
   color: white;
   padding: 1px 25px;
   border-radius: 10px;
   line-height: 1.5;
   text-align: center;
-  margin:auto 0;
+  margin: auto 0;
+  // background: rgb(0, 212, 255);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(0, 212, 255, 1) 0%,
+  //   rgba(9, 9, 121, 1) 51%,
+  //   rgba(4, 0, 69, 1) 100%
+  // );
+  background: rgb(86, 193, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(86, 193, 255, 1) 0%,
+    rgba(4, 0, 73, 1) 95%
+  );
+  background: white;
+  color: black;
+  // border-bottom: 3px solid #285498;
+  // border-left: 1px solid #285498;
+  // border-right: 3px solid #285498;
+  // border-top: 1px solid #285498;
+  box-shadow: 2px 2px 5px 0px #285498;
+}
 `;
 
 export const PartDesc = styled.p`
@@ -164,7 +197,7 @@ export const PartDesc = styled.p`
   line-height: 1.5;
   text-align: left;
   padding: 0 15px;
-  margin-top:10px;
+  margin-top: 10px;
 `;
 
 export const PartsContainer = styled.div`
