@@ -208,7 +208,7 @@ export const PartsContainer = styled.div`
   justify-content: center;
   row-gap: 25px;
   column-gap: 50px;
-  margin-top: 30px;
+  margin-top: 5px;
   margin-bottom: 30px;
   padding-top: 30px;
 `;
