@@ -10,19 +10,16 @@ import {
   PartViewInner,
 } from "../styles/AllView.styled";
 
-const PartView = (props) => {
-  if (props.properties === null || props.selectedProperty === null) {
+const PartView = ({ selectedProperty }) => {
+  if (selectedProperty == null) {
     return <p style={{ textAlign: "center" }}>Fetching Content...</p>;
   }
 
-  // let sortedParts = props.properties.find(
-  //   (el) => el._id.toString() === props.id.toString()
-  // ).parts;
-
-  let sortedParts = props.selectedProperty.parts;
+  let sortedParts = selectedProperty.parts;
   sortedParts.sort((a, b) => {
     return b.rating - a.rating;
   });
+
   console.log(sortedParts);
   if (sortedParts.length > 0) {
     return (
@@ -34,19 +31,24 @@ const PartView = (props) => {
               src={el.img}
               description={el.description}
               stars={el.rating}
-              title={el.name}></Parts>
+              title={el.name}
+            ></Parts>
           ))}
       </PartsContainer>
     );
   } else {
     return (
-      <p style={{ marginTop: "50px", fontFamily: "Poppins", textAlign: "center" }}>
+      <p
+        style={{
+          marginTop: "50px",
+          fontFamily: "Poppins",
+          textAlign: "center",
+        }}
+      >
         No views to show... Start adding Views
       </p>
-    )
-
+    );
   }
-
 };
 
 const Parts = (props) => {
@@ -72,7 +74,8 @@ const Parts = (props) => {
                 height="14"
                 fill="currentColor"
                 className="bi bi-star-fill"
-                viewBox="0 0 16 16">
+                viewBox="0 0 16 16"
+              >
                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
               </svg>
             </PartRating>
