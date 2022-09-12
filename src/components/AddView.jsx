@@ -255,7 +255,10 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
 
   const handleAddView = (currentParts, currentProp, newPart) => {
     axios
-      .put(`${process.env.BACKEND_URI}/properties/${id}`, newPart)
+      .put(
+        `https://house-journal-backend.herokuapp.com/properties/${id}`,
+        newPart
+      )
       .then((_response) => {
         let newproperties = properties.map((el) => {
           if (el._id.toString() === id.toString()) {
@@ -307,10 +310,13 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
 
     if (parseFloat(finder.weight) !== newWeight) {
       axios
-        .put(`${process.env.BACKEND_URI}/views/${finder._id}`, {
-          ...finder,
-          weight: newWeight,
-        })
+        .put(
+          `https://house-journal-backend.herokuapp.com/views/${finder._id}`,
+          {
+            ...finder,
+            weight: newWeight,
+          }
+        )
         .then((res) => {
           let newViews = views.map((el) => {
             if (el.name === finder.name) {

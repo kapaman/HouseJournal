@@ -35,15 +35,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios.get(`${process.env.BACKEND_URI}/properties`).then((response) => {
-      setProperties(response.data);
-    });
+    axios
+      .get(`https://house-journal-backend.herokuapp.com/properties`)
+      .then((response) => {
+        setProperties(response.data);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get(`${process.env.BACKEND_URI}/views`).then((response) => {
-      setViews(response.data);
-    });
+    axios
+      .get(`https://house-journal-backend.herokuapp.com/views`)
+      .then((response) => {
+        setViews(response.data);
+      });
   }, []);
 
   return (
