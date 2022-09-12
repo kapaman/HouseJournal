@@ -33,10 +33,7 @@ const AddProperty = () => {
     };
 
     axios
-      .post(
-        `https://whats-good-backend-kapaman.vercel.app/properties`,
-        newProperty
-      )
+      .post(`${process.env.BACKEND_URI}/properties`, newProperty)
       .then((response) => {
         let newproperties = properties.concat(response.data);
         setProperties(newproperties);
@@ -67,8 +64,7 @@ const AddProperty = () => {
         }}
         fill="currentColor"
         className="bi bi-plus-circle-fill"
-        viewBox="0 0 16 16"
-      >
+        viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
       </svg>
     );
@@ -94,14 +90,12 @@ const AddProperty = () => {
             marginBottom: "50px",
             zIndex: "9",
             rowGap: "25px",
-          }}
-        >
+          }}>
           <DragDrop
             setImage={setImage}
             height={400}
             width={400}
-            quality={100}
-          ></DragDrop>
+            quality={100}></DragDrop>
 
           <div
             className="textarea"
@@ -110,8 +104,7 @@ const AddProperty = () => {
               gridTemplateColumns: "1fr",
               fontFamily: '"Poppins"',
               fontWeight: 200,
-            }}
-          >
+            }}>
             <TextField
               multiline
               margin="none"
@@ -128,13 +121,11 @@ const AddProperty = () => {
               gridTemplateColumns: "1fr 1fr",
               width: "inherit",
               columnGap: "25px",
-            }}
-          >
+            }}>
             <TextField
               label="Price"
               variant="outlined"
-              size="small"
-            ></TextField>
+              size="small"></TextField>
             <TextField label="Area" variant="outlined" size="small"></TextField>
           </div>
           <div
@@ -144,18 +135,15 @@ const AddProperty = () => {
               gridTemplateColumns: "1fr 1fr",
               width: "inherit",
               columnGap: "25px",
-            }}
-          >
+            }}>
             <TextField
               label="Bedrooms"
               variant="outlined"
-              size="small"
-            ></TextField>
+              size="small"></TextField>
             <TextField
               label="Bathrooms"
               variant="outlined"
-              size="small"
-            ></TextField>
+              size="small"></TextField>
           </div>
           <div
             className="buttons"
@@ -164,8 +152,7 @@ const AddProperty = () => {
               gridTemplateColumns: "auto auto auto auto auto",
               gridGap: "15px",
               marginTop: "10px",
-            }}
-          >
+            }}>
             <button
               className="cancel"
               onClick={() => setShow(!show)}
@@ -180,8 +167,7 @@ const AddProperty = () => {
                 fontSize: "17px",
                 border: "1px solid #727272",
                 fontWeight: 400,
-              }}
-            >
+              }}>
               cancel
             </button>
             <button
@@ -197,8 +183,7 @@ const AddProperty = () => {
                 border: "none",
                 fontWeight: 400,
                 cursor: "pointer",
-              }}
-            >
+              }}>
               save
             </button>
           </div>

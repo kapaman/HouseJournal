@@ -55,14 +55,12 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
           right: "0",
           marginRight: "50px",
           marginBottom: "30px",
-        }}
-      >
+        }}>
         <DragDrop
           setImage={setImage}
           height={300}
           width={300}
-          quality={80}
-        ></DragDrop>
+          quality={80}></DragDrop>
 
         <div className="inputrating" style={{ display: "grid" }}>
           {" "}
@@ -89,8 +87,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
 
         <div
           className="textarea"
-          style={{ display: "grid", fontFamily: '"Poppins"', fontWeight: 200 }}
-        >
+          style={{ display: "grid", fontFamily: '"Poppins"', fontWeight: 200 }}>
           <TextField
             multiline
             size="small"
@@ -104,8 +101,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
 
         <div
           className="inputrating"
-          style={{ display: "grid", gridTemplateColumns: "67% auto" }}
-        >
+          style={{ display: "grid", gridTemplateColumns: "67% auto" }}>
           <p
             className="ratingpara"
             style={{
@@ -116,8 +112,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               fontFamily: '"Poppins"',
               fontWeight: 300,
               fontSize: "15px",
-            }}
-          >
+            }}>
             Rating
           </p>
           <Slider
@@ -146,15 +141,13 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               fontFamily: '"Poppins"',
               fontWeight: 600,
               minWidth: "19px",
-            }}
-          >
+            }}>
             {rating}
           </span>
         </div>
         <div
           className="inputrating"
-          style={{ display: "grid", gridTemplateColumns: "67% auto" }}
-        >
+          style={{ display: "grid", gridTemplateColumns: "67% auto" }}>
           <p
             className="ratingpara"
             style={{
@@ -165,8 +158,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               fontFamily: '"Poppins"',
               fontWeight: 300,
               fontSize: "15px",
-            }}
-          >
+            }}>
             Weight
           </p>
           <Slider
@@ -195,8 +187,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               fontSize: "12px",
               fontFamily: '"Poppins"',
               fontWeight: 600,
-            }}
-          >
+            }}>
             {getWeight(weight)}
           </span>
         </div>
@@ -208,8 +199,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
             gridTemplateColumns: "auto auto auto auto auto",
             gridGap: "15px",
             marginTop: "10px",
-          }}
-        >
+          }}>
           <button
             className="cancel"
             style={{
@@ -223,8 +213,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               fontWeight: 400,
               cursor: "pointer",
             }}
-            onClick={() => setShow(!show)}
-          >
+            onClick={() => setShow(!show)}>
             cancel
           </button>
           <button
@@ -241,8 +230,7 @@ const AddView2 = ({ views, handleSubmit, setImage, show, setShow }) => {
               cursor: "pointer",
             }}
             type={"submit"}
-            value="submit"
-          >
+            value="submit">
             save
           </button>
         </div>
@@ -267,10 +255,7 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
 
   const handleAddView = (currentParts, currentProp, newPart) => {
     axios
-      .put(
-        `https://whats-good-backend-kapaman.vercel.app/properties/${id}`,
-        newPart
-      )
+      .put(`${process.env.BACKEND_URI}/properties/${id}`, newPart)
       .then((_response) => {
         let newproperties = properties.map((el) => {
           if (el._id.toString() === id.toString()) {
@@ -322,10 +307,10 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
 
     if (parseFloat(finder.weight) !== newWeight) {
       axios
-        .put(
-          `https://whats-good-backend-kapaman.vercel.app/views/${finder._id}`,
-          { ...finder, weight: newWeight }
-        )
+        .put(`${process.env.BACKEND_URI}/views/${finder._id}`, {
+          ...finder,
+          weight: newWeight,
+        })
         .then((res) => {
           let newViews = views.map((el) => {
             if (el.name === finder.name) {
@@ -359,8 +344,7 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
         }}
         fill="currentColor"
         className="bi bi-plus-circle-fill"
-        viewBox="0 0 16 16"
-      >
+        viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
       </svg>
     );
@@ -372,8 +356,7 @@ const AddView = ({ selectedProperty, setSelectedProperty }) => {
         views={views}
         handleSubmit={handleSubmit}
         image={image}
-        setImage={setImage}
-      ></AddView2>
+        setImage={setImage}></AddView2>
     );
   }
 };

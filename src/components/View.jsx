@@ -22,7 +22,7 @@ const AllViews = (props) => {
       selectedProp.parts[0].img === undefined
     ) {
       axios
-        .get("https://whats-good-backend-kapaman.vercel.app/properties/" + id)
+        .get(`${process.env.BACKEND_URI}/properties/${id}`)
         .then((response) => {
           let propertyWithImage = properties.map((el) =>
             el._id === id ? response.data[0] : el
@@ -39,13 +39,11 @@ const AllViews = (props) => {
     <RootContainer>
       <OverViewDesigned
         id={id}
-        selectedProperty={selectedProperty}
-      ></OverViewDesigned>
+        selectedProperty={selectedProperty}></OverViewDesigned>
       <PartView id={id} selectedProperty={selectedProperty}></PartView>
       <AddView
         setSelectedProperty={setSelectedProperty}
-        selectedProperty={selectedProperty}
-      ></AddView>
+        selectedProperty={selectedProperty}></AddView>
     </RootContainer>
   );
 };
