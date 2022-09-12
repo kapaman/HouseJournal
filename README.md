@@ -24,7 +24,10 @@ Used the following:
 - ReactJS
 - MongoDB
 - NodeJS
+- ExpressJS
+- Typescript
 - styled-components
+- MaterialUI
 
 ## Authors:
 
