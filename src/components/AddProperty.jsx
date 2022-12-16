@@ -33,10 +33,7 @@ const AddProperty = () => {
     };
 
     axios
-      .post(
-        `https://house-journal-backend.herokuapp.com/properties/`,
-        newProperty
-      )
+      .post(`https://house-a8y1.onrender.com/properties/`, newProperty)
       .then((response) => {
         let newproperties = properties.concat(response.data);
         setProperties(newproperties);

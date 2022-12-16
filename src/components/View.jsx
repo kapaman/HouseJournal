@@ -22,7 +22,7 @@ const AllViews = (props) => {
       selectedProp.parts[0].img === undefined
     ) {
       axios
-        .get(`https://house-journal-backend.herokuapp.com/properties/${id}`)
+        .get(`https://house-a8y1.onrender.com/properties/${id}`)
         .then((response) => {
           let propertyWithImage = properties.map((el) =>
             el._id === id ? response.data[0] : el

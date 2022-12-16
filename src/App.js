@@ -35,19 +35,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`https://house-journal-backend.herokuapp.com/properties`)
-      .then((response) => {
-        setProperties(response.data);
-      });
+    axios.get(`https://house-a8y1.onrender.com/properties`).then((response) => {
+      setProperties(response.data);
+    });
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`https://house-journal-backend.herokuapp.com/views`)
-      .then((response) => {
-        setViews(response.data);
-      });
+    axios.get(`https://house-a8y1.onrender.com/views`).then((response) => {
+      setViews(response.data);
+    });
   }, []);
 
   return (
